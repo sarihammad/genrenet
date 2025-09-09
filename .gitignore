@@ -39,7 +39,7 @@ env/
 *.swo
 
 # Data and models
-data/
+/data/
 saved_models/
 logs/
 *.log
