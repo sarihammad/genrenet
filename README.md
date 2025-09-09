@@ -1,4 +1,4 @@
-# GTZAN Genre CNN
+# GenreNet
 
 A music genre classification system using log-mel spectrograms and CNNs, trained on the GTZAN dataset.
 
@@ -33,8 +33,8 @@ graph TD
     Q --> R[Evaluation]
     R --> S[Metrics & Plots]
 
-    T[FastAPI] --> U[/healthz]
-    T --> V[/predict]
+    T[FastAPI] --> U[healthz]
+    T --> V[predict]
     V --> W[Audio Upload]
     W --> X[Preprocessing]
     X --> Y[Inference]
@@ -200,11 +200,3 @@ model:
   num_classes: 10
   dropout: 0.30
 ```
-
-## Tips for Better Performance
-
-- **Learning Rate**: Start with 0.001, reduce if loss plateaus
-- **Batch Size**: Increase if you have more GPU memory
-- **Augmentation**: Toggle `augment` and `specaugment.p` for regularization
-- **Scheduler**: Try `cosine` for smooth decay or `step` for sharp drops
-- **AMP**: Enable for faster training on modern GPUs
