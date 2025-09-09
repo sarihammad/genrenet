@@ -1,0 +1,17 @@
+fastapi==0.115.*
+uvicorn[standard]==0.30.*
+pydantic==2.*
+numpy==1.26.*
+pandas==2.*
+scikit-learn==1.5.*
+torch==2.3.*
+torchaudio==2.3.*
+librosa==0.10.*
+matplotlib==3.8.*
+tqdm==4.*
+pyyaml==6.*
+soundfile==0.12.*
+orjson==3.*
+pytest==8.*
+ruff==0.5.*
+black==24.*

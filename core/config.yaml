@@ -1,0 +1,31 @@
+seed: 42
+device: auto # auto|cuda|cpu
+data:
+  root: ./data
+  sample_rate: 22050
+  duration_sec: 30
+  n_mels: 128
+  n_fft: 1024
+  hop_length: 512
+  batch_size_train: 16
+  batch_size_eval: 32
+  num_workers: 2
+  augment: true # waveform aug (pitch/time)
+  specaugment:
+    freq_mask_param: 12
+    time_mask_param: 24
+    p: 0.3
+train:
+  epochs: 15
+  lr: 0.001
+  weight_decay: 0.0001
+  optimizer: adam # adam|sgd
+  momentum: 0.9 # for sgd
+  amp: true
+  scheduler: cosine # none|cosine|step
+  early_stop_patience: 5
+  save_dir: ./saved_models
+  save_name: best_model.pt
+model:
+  num_classes: 10
+  dropout: 0.30

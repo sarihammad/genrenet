@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: docker/api.Dockerfile
+    ports:
+      - "8089:8089"
+    env_file:
+      - ../env.example
+    volumes:
+      - ../saved_models:/app/saved_models:ro
+    depends_on:
+      - train
+    restart: unless-stopped
+
+  train:
+    build:
+      context: ..
+      dockerfile: docker/train.Dockerfile
+    volumes:
+      - ../data:/workspace/data
+      - ../saved_models:/workspace/saved_models
+    env_file:
+      - ../env.example
+    restart: "no"
